@@ -89,8 +89,8 @@ const userCredential = async (userData) => {
             console.log(err);
           }
          console.log("successfully send email");
+         sendMailToAdmins(userData,adminArray);
       })
-      sendMailToAdmins(userData,adminArray);
   }
 } 
 
