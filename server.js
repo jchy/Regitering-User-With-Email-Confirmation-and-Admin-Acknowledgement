@@ -9,7 +9,7 @@ app.use(express.json());
 const {signup , signin} = require('./src/controllers/auth.controller');
 const userController = require('./src/controllers/user.controller');
 
-app.post("/signup", signup);
+app.post("/register", signup);
 app.post("/signin", signin);
 
 app.use("/users", userController);

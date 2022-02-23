@@ -2,14 +2,14 @@ const mongoose=require('mongoose');
 const bcrypt=require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-    email: {type: String, required: true, unique: true},
-    password: {type: String, required: true, minLength:6}
+    first_name : {type: String, required: true},
+    last_name : {type: String, required: true},
+    email : {type: String, required: true, unique: true},
+    isAdmin : {type: Boolean, required: true},
+    password : {type: String, required: true, minLength:6}
 },{
     timestamps: { created_at: () => Date.now() }
 });
-
-// pre save hook is provided by mongoose this says that before you save the document 
-// Please do this then save the document
 
 userSchema.pre("save", function(next){
     if(!this.isModified("password")) return next();
